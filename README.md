@@ -42,7 +42,47 @@ test("Valid email should return true", () {
 });
 ```
 
-You’ll see this structure followed in the example above to keep tests clean, readable, and consistent.
+## group() in Unit Testing
+group() in Flutter unit testing is used to organize related test cases together. It helps structure your tests logically and provides cleaner, grouped output — especially useful when using ```flutter test --reporter expanded```.
+
+### Why use group()?
+It makes test output more readable.
+
+This is useful when you have multiple tests for a specific feature or module (e.g., Email validation, Calculator functions, etc.).
+
+```dart
+import 'package:flutter_test/flutter_test.dart';
+
+int add(int a, int b) => a + b;
+
+void main() {
+  group("Calculator Tests", () {
+    test("Addition of two numbers", () {
+      // Arrange
+      final a = 5;
+      final b = 3;
+
+      // Act
+      final result = add(a, b);
+
+      // Assert
+      expect(result, 8);
+    });
+
+    test("Addition with zero", () {
+      // Arrange
+      final a = 0;
+      final b = 7;
+
+      // Act
+      final result = add(a, b);
+
+      // Assert
+      expect(result, 7);
+    });
+  });
+}
+```
 
 ---
 
