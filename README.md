@@ -8,17 +8,41 @@ In Flutter, this means testing Dart functions like validators, calculators, or b
 ## Types of Tests in Flutter
 Flutter has three main types of tests:
 
-### Unit Tests
+### 1) Unit Tests
 Test a single function, method, or class in isolation.</br>
 Example: Validating an email string.
 
-### Widget Tests
+### 2) Widget Tests
 Test a single widget’s UI and interactions.</br>
 Example: Tapping a button should trigger a specific action.
 
-### Integration Tests
+### 3) Integration Tests
 Test the complete app or a large part of it, including UI, backend, and navigation.</br>
 Example: Login flow from typing to redirection.
+
+## AAA Pattern (Arrange–Act–Assert)
+This is the most common structure used in writing tests:
+
+- **Arrange:** Set up the input, dependencies, or conditions.
+
+- **Act:** Execute the function or behavior you're testing.
+
+- **Assert:** Check the output or result to confirm it behaves as expected.
+
+```dart
+test("Valid email should return true", () {
+  // Arrange
+  final email = "example@gmail.com";
+
+  // Act
+  final result = isValidateEmail(email);
+
+  // Assert
+  expect(result, true);
+});
+```
+
+You’ll see this structure followed in the example above to keep tests clean, readable, and consistent.
 
 ---
 
